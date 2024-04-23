@@ -1,0 +1,431 @@
+    {
+        "id": "d2f24479ed87640d",
+        "type": "subflow",
+        "name": "airconblock",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 60,
+                "y": 240,
+                "wires": [
+                    {
+                        "id": "e76fceef5c74a8b8"
+                    },
+                    {
+                        "id": "fb1fd0535f2743dc"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 650,
+                "y": 80,
+                "wires": [
+                    {
+                        "id": "297eac3f9c84a5db",
+                        "port": 0
+                    },
+                    {
+                        "id": "b5a0d8e8c807887e",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 850,
+                "y": 260,
+                "wires": [
+                    {
+                        "id": "65ef4fdc88f691cc",
+                        "port": 0
+                    },
+                    {
+                        "id": "354001fdc0dc67cb",
+                        "port": 0
+                    },
+                    {
+                        "id": "38ea7f6196d72f72",
+                        "port": 0
+                    },
+                    {
+                        "id": "009b42f7943c80fe",
+                        "port": 0
+                    },
+                    {
+                        "id": "4e4771a0ca8b6dee",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 680,
+                "y": 420,
+                "wires": [
+                    {
+                        "id": "fb1fd0535f2743dc",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [],
+        "meta": {
+            "module": "node-red-contrib-ac-dat0210",
+            "type": "acblock",
+            "version": "0.0.1",
+            "author": "Dat Nguyen <datsrt02@gmail.com>",
+            "desc": "A block function for Air Condition for connect to KNX and Google Home",
+            "keywords": "ac google, knx google home",
+            "license": "Apache-2.0"
+        },
+        "color": "#DDAA99",
+        "inputLabels": [
+            "ac"
+        ],
+        "outputLabels": [
+            "on/off knx address",
+            "mode knx address",
+            "setpoint knx address"
+        ]
+    },
+    {
+        "id": "e76fceef5c74a8b8",
+        "type": "switch",
+        "z": "d2f24479ed87640d",
+        "name": "Mode HVAC",
+        "property": "payload.mode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "off",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "cool",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "heat",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "auto",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "fan-only",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "dry",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 6,
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "297eac3f9c84a5db"
+            ],
+            [
+                "b5a0d8e8c807887e",
+                "2966df21d3fafef6"
+            ],
+            [
+                "b5a0d8e8c807887e",
+                "90265312cf41c7dc"
+            ],
+            [
+                "b5a0d8e8c807887e",
+                "bcde1eec3e93948e"
+            ],
+            [
+                "b5a0d8e8c807887e",
+                "a23cbbc6f5a60cdd"
+            ],
+            [
+                "b5a0d8e8c807887e",
+                "711df78792d4ea5b"
+            ]
+        ]
+    },
+    {
+        "id": "297eac3f9c84a5db",
+        "type": "function",
+        "z": "d2f24479ed87640d",
+        "name": "Off",
+        "func": "msg.payload = 0\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 60,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2966df21d3fafef6",
+        "type": "delay",
+        "z": "d2f24479ed87640d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 180,
+        "wires": [
+            [
+                "65ef4fdc88f691cc"
+            ]
+        ]
+    },
+    {
+        "id": "a23cbbc6f5a60cdd",
+        "type": "delay",
+        "z": "d2f24479ed87640d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 300,
+        "wires": [
+            [
+                "009b42f7943c80fe"
+            ]
+        ]
+    },
+    {
+        "id": "b5a0d8e8c807887e",
+        "type": "function",
+        "z": "d2f24479ed87640d",
+        "name": "On",
+        "func": "msg.payload = 1\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "65ef4fdc88f691cc",
+        "type": "function",
+        "z": "d2f24479ed87640d",
+        "name": "Cool",
+        "func": "msg.payload = 3\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "354001fdc0dc67cb",
+        "type": "function",
+        "z": "d2f24479ed87640d",
+        "name": "Heat",
+        "func": "msg.payload = 1\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "90265312cf41c7dc",
+        "type": "delay",
+        "z": "d2f24479ed87640d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 220,
+        "wires": [
+            [
+                "354001fdc0dc67cb"
+            ]
+        ]
+    },
+    {
+        "id": "bcde1eec3e93948e",
+        "type": "delay",
+        "z": "d2f24479ed87640d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 260,
+        "wires": [
+            [
+                "38ea7f6196d72f72"
+            ]
+        ]
+    },
+    {
+        "id": "711df78792d4ea5b",
+        "type": "delay",
+        "z": "d2f24479ed87640d",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 430,
+        "y": 340,
+        "wires": [
+            [
+                "4e4771a0ca8b6dee"
+            ]
+        ]
+    },
+    {
+        "id": "38ea7f6196d72f72",
+        "type": "function",
+        "z": "d2f24479ed87640d",
+        "name": "Auto",
+        "func": "msg.payload = 0\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "009b42f7943c80fe",
+        "type": "function",
+        "z": "d2f24479ed87640d",
+        "name": "Fan",
+        "func": "msg.payload = 9\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4e4771a0ca8b6dee",
+        "type": "function",
+        "z": "d2f24479ed87640d",
+        "name": "Dry",
+        "func": "msg.payload = 14\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fb1fd0535f2743dc",
+        "type": "function",
+        "z": "d2f24479ed87640d",
+        "name": "Setpoint",
+        "func": "msg.payload = msg.payload.setpoint\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    }

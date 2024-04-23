@@ -1,0 +1,26 @@
+{
+  "name": "acblock-subflow",
+  "version": "0.0.1",
+  "description": "A block for control Air Condition by KNX and Google Voice",
+  "main": "flow.js",
+  "keywords": [
+    "ac",
+    "google",
+    "voice",
+    "knx",
+    "voice"
+  ],
+  "author": "Dat Nguyen <datsrt02@gmail.com>",
+  "license": "ISC",
+  "node-red": {
+        "nodes": {
+            "example-node": "example.js"
+        },
+	"dependencies": [
+            "node-red-node-random"
+        ]
+  },
+  "dependencies": {
+        "node-red-node-random": "1.2.3"
+  }
+}
